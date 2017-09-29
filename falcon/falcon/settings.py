@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'crispy_forms',
     'accounts.apps.AccountsConfig',
+    'doctor.apps.DoctorConfig',
+    'pharmacy.apps.PharmacyConfig',
+    'receptionist.apps.ReceptionistConfig',
 ]
 
 MIDDLEWARE = [
