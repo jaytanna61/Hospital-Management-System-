@@ -16,8 +16,8 @@ class Patient(models.Model):
 
 
 class PatientHistory(models.Model):
-    patient_ID = models.ForeignKey(Patient)
-    appointment_ID = models.ForeignKey(Appointment)
+    patient = models.ForeignKey(Patient)
+    appointment = models.ForeignKey(Appointment)
     prescription = models.CharField(max_length=1000)
     comments = models.CharField(max_length=1000)
 
