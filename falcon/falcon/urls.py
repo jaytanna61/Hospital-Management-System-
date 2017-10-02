@@ -13,12 +13,15 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from IPython.core.magics import namespace
+from django.conf.urls import url, include
 from django.contrib import admin
 from rest_framework.urlpatterns import format_suffix_patterns
-
+from setuptools import namespaces
 
 from accounts import views
+from receptionist import  views as rec
+from accounts.views import receptionist
 
 urlpatterns = [
     url(r'^$', views.home, name="home"),
@@ -30,10 +33,6 @@ urlpatterns = [
     url(r'^pharmacy/', views.pharmacy, name="pharmacy"),
     url(r'^test', views.test, name="test"),
     url(r'^work', views.test2, name="register"),
-    url(r'^api_test', views.api_test.as_view()),
-
-
+    url(r'^api/accounts/', include('accounts.api.urls', namespace='api')),
 ]
 
-
-urlpatterns = format_suffix_patterns(urlpatterns)
