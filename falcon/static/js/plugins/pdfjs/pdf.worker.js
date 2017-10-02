@@ -3862,7 +3862,7 @@ function loadJpegStream(id, imageUrl, objs) {
           } else if (EOF == c) {
             break loop;
           } else {
-            err('Code point not allowed in scheme: ' + c)
+            err('Code point not allowed in scheme: ' + c);
             break loop;
           }
           break;
@@ -3936,8 +3936,8 @@ function loadJpegStream(id, imageUrl, objs) {
             this._password = base._password;
             state = 'fragment';
           } else {
-            var nextC = input[cursor+1]
-            var nextNextC = input[cursor+2]
+            var nextC = input[cursor+1];
+            var nextNextC = input[cursor+2];
             if (
               'file' != this._scheme || !ALPHA.test(c) ||
               (nextC != ':' && nextC != '|') ||
@@ -25884,7 +25884,7 @@ var Lexer = (function LexerClosure() {
           break;
         } else if (specialChars[ch] === 1) {
           ch = this.nextChar();
-          continue;
+
         } else {
           if (isFirstHex) {
             firstDigit = toHexDigit(ch);
@@ -34864,7 +34864,7 @@ var Catalog = (function CatalogClosure() {
             // will be descended into.
             nodesToVisit = [kids[pageIndex - currentPageIndex]];
             currentPageIndex = pageIndex;
-            continue;
+
           } else {
             for (var last = kids.length - 1; last >= 0; last--) {
               nodesToVisit.push(kids[last]);
@@ -38831,7 +38831,7 @@ var PartialEvaluator = (function PartialEvaluatorClosure() {
         }
         if (charCode in encoding && widthsByGlyphName[encoding[charCode]]) {
           widths[charCode] = widthsByGlyphName[encoding[charCode]];
-          continue;
+
         }
       }
       return widths;
@@ -41437,7 +41437,7 @@ var PDFDocument = (function PDFDocumentClosure() {
           // removing "%PDF-"-prefix
           this.pdfFormatVersion = version.substring(5);
         }
-        return;
+
       }
       // May not be a PDF file, continue anyway.
     },
@@ -41653,7 +41653,7 @@ var LocalPdfManager = (function LocalPdfManagerClosure() {
     },
 
     requestLoadedStream: function LocalPdfManager_requestLoadedStream() {
-      return;
+
     },
 
     onLoadedStream: function LocalPdfManager_onLoadedStream() {
@@ -41661,7 +41661,7 @@ var LocalPdfManager = (function LocalPdfManagerClosure() {
     },
 
     terminate: function LocalPdfManager_terminate() {
-      return;
+
     }
   });
 

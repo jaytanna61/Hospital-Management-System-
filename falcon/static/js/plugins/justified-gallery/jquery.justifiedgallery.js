@@ -176,7 +176,7 @@ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain Vie
 		}
 
 		function processesImages($, cont, images, lastRowWidth, settings){	
-			var row = new Array();
+			var row = [];
 			var row_i, i;
 			var partialRowWidth = 0;
 			var extraW;
@@ -195,7 +195,7 @@ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain Vie
 					extraW = Math.ceil((rowWidth - partialRowWidth + 1) / row.length); 
 					$(cont).append(buildContRow(row, images, extraW, settings));
 
-					row = new Array();
+					row = [];
 					row[0] = new Array(5);
 					row[0]["indx"] = i;
 					row_i = 1;
@@ -247,7 +247,7 @@ or send a letter to Creative Commons, 444 Castro Street, Suite 900, Mountain Vie
 					$(cont).find(".jg-row").remove();
 					clearInterval(id);
 					processesImages($, cont, images, lastRowWidth, settings);
-					return;
+
 				}
 
 			}, settings.refreshTime);

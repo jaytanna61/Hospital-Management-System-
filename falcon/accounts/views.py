@@ -14,7 +14,6 @@ from django.shortcuts import render, redirect
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from API.serializer import TestSerializer
 from .forms import UserLoginForm, UserCreateForm
 
 # Create your views here.
@@ -71,7 +70,7 @@ def pharmacy(request):
 
 # ---------------------------------------------------- Development Testing Methods --------------------
 @login_required(login_url='/login/')
-def test(request):
+def PasswordReset(request):
     if request.method == 'POST':
         form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
@@ -108,15 +107,5 @@ def test2(request):
         'title': title
     })
 
-
-class api_test(APIView):
-
-    def get(self, request):
-        user = User.objects.all()
-        serialize = TestSerializer(user, many=True)
-        return Response(serialize.data)
-
-    def post(self, request):
-        pass
 
 

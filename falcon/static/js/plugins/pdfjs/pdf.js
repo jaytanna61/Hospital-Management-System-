@@ -1841,7 +1841,7 @@ function loadJpegStream(id, imageUrl, objs) {
           } else if (EOF == c) {
             break loop;
           } else {
-            err('Code point not allowed in scheme: ' + c)
+            err('Code point not allowed in scheme: ' + c);
             break loop;
           }
           break;
@@ -1915,8 +1915,8 @@ function loadJpegStream(id, imageUrl, objs) {
             this._password = base._password;
             state = 'fragment';
           } else {
-            var nextC = input[cursor+1]
-            var nextNextC = input[cursor+2]
+            var nextC = input[cursor+1];
+            var nextNextC = input[cursor+2];
             if (
               'file' != this._scheme || !ALPHA.test(c) ||
               (nextC != ':' && nextC != '|') ||

@@ -13,15 +13,10 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from IPython.core.magics import namespace
 from django.conf.urls import url, include
 from django.contrib import admin
-from rest_framework.urlpatterns import format_suffix_patterns
-from setuptools import namespaces
-
 from accounts import views
-from receptionist import  views as rec
-from accounts.views import receptionist
+
 
 urlpatterns = [
     url(r'^$', views.home, name="home"),
@@ -31,8 +26,10 @@ urlpatterns = [
     url(r'^doctors/', views.doctors, name="doctors"),
     url(r'^receptionist/', views.receptionist, name="receptionist"),
     url(r'^pharmacy/', views.pharmacy, name="pharmacy"),
-    url(r'^test', views.test, name="test"),
-    url(r'^work', views.test2, name="register"),
-    url(r'^api/accounts/', include('accounts.api.urls', namespace='api')),
+    url(r'^reset', views.PasswordReset, name="reset"),
+    url(r'^register', views.test2, name="register"),
+    url(r'^api/patients/', include('patient.api.urls', namespace='patients_api')),
+    url(r'^api/pharmacy/', include('pharmacy.api.urls', namespace='pharmacy_api')),
+    url(r'^api/pharmacy/', include('pharmacy.api.urls', namespace='pharmacy_api')),
 ]
 
